@@ -3,7 +3,7 @@ $( shell mkdir -p bin )
 
 GOOS?=$(shell go env GOOS)
 GOARCH?=$(shell go env GOARCH)
-GOLANGCI_VERSION = 1.53.0
+GOLANGCI_VERSION = 1.55.2
 HELM_DOCS_VERSION = 1.11.0
 
 ifeq ($(GOARCH),arm)
