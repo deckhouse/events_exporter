@@ -15,14 +15,14 @@ package kube
 
 import (
 	"fmt"
+	kubelog "k8s.io/klog/v2"
 
 	"github.com/go-logr/logr"
 	"github.com/prometheus/common/log"
-	"k8s.io/klog/v2"
 )
 
 func init() {
-	klog.SetLogger(logr.New(&sink{}))
+	kubelog.SetLogger(logr.New(&sink{}))
 }
 
 // logger is an implementation of logr.Logger interface.

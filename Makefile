@@ -3,7 +3,7 @@ $( shell mkdir -p bin )
 
 GOOS?=$(shell go env GOOS)
 GOARCH?=$(shell go env GOARCH)
-GOLANGCI_VERSION = 1.51.0
+GOLANGCI_VERSION = 1.53.0
 HELM_DOCS_VERSION = 1.11.0
 
 ifeq ($(GOARCH),arm)
@@ -40,7 +40,7 @@ bin/helm-docs-${HELM_DOCS_VERSION}:
 
 .PHONY: lint fix
 lint: bin/golangci-lint
-	bin/golangci-lint run
+	GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=0 bin/golangci-lint run
 
 fix: bin/golangci-lint
 	bin/golangci-lint run --fix
