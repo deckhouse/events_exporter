@@ -40,7 +40,10 @@ func (m *MetricsServer) Start(address string, errorCh chan error) {
 
 	http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("ok"))
+		_, err := w.Write([]byte("ok"))
+		if err != nil {
+			log.Errorf("error writing ok response: %v", err)
+		}
 	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

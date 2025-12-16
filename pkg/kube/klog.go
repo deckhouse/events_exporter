@@ -36,7 +36,6 @@ func (l *sink) Enabled(_ int) bool {
 }
 
 func (l *sink) Init(_ logr.RuntimeInfo) {
-	return
 }
 
 func (l *sink) Info(_ int, msg string, keysAndValues ...interface{}) {
