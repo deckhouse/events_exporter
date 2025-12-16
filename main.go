@@ -21,9 +21,9 @@ import (
 
 	"github.com/prometheus/common/log"
 
-	"github.com/nabokihms/events_exporter/pkg/kube"
-	"github.com/nabokihms/events_exporter/pkg/server"
-	"github.com/nabokihms/events_exporter/pkg/vault"
+	"github.com/deckhouse/events_exporter/pkg/kube"
+	"github.com/deckhouse/events_exporter/pkg/server"
+	"github.com/deckhouse/events_exporter/pkg/vault"
 )
 
 func main() {

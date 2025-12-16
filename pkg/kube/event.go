@@ -19,7 +19,7 @@ import (
 	"github.com/prometheus/common/log"
 	v1 "k8s.io/api/core/v1"
 
-	"github.com/nabokihms/events_exporter/pkg/vault"
+	"github.com/deckhouse/events_exporter/pkg/vault"
 )
 
 const maxMessageLen = 200

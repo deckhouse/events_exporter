@@ -21,7 +21,7 @@ import (
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/nabokihms/events_exporter/pkg/vault"
+	"github.com/deckhouse/events_exporter/pkg/vault"
 )
 
 func TestEventToSample(t *testing.T) {

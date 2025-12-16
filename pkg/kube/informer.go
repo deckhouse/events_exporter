@@ -48,11 +48,11 @@ func NewEventsInformer(kubeconfigPath, fieldSelector string, handler func(object
 func newInformer(client kubernetes.Interface, fieldSelector string, handler func(object interface{})) (*EventsInformer, error) {
 	informer := cache.NewSharedIndexInformer(
 		&cache.ListWatch{
-			ListFunc: func(options metav1.ListOptions) (runtime.Object, error) {
+			ListFunc: func(_ metav1.ListOptions) (runtime.Object, error) {
 				opts := metav1.ListOptions{FieldSelector: fieldSelector}
 				return client.CoreV1().Events(metav1.NamespaceAll).List(context.TODO(), opts)
 			},
-			WatchFunc: func(options metav1.ListOptions) (watch.Interface, error) {
+			WatchFunc: func(_ metav1.ListOptions) (watch.Interface, error) {
 				opts := metav1.ListOptions{FieldSelector: fieldSelector}
 				return client.CoreV1().Events(metav1.NamespaceAll).Watch(context.TODO(), opts)
 			},
@@ -68,8 +68,8 @@ func newInformer(client kubernetes.Interface, fieldSelector string, handler func
 func (e *EventsInformer) Run(stopCh <-chan struct{}, errorCh chan<- error) {
 	e.informer.AddEventHandler(cache.ResourceEventHandlerFuncs{
 		AddFunc: e.eventHandler,
-		UpdateFunc: func(act, new interface{}) {
-			e.eventHandler(new)
+		UpdateFunc: func(_, newObj interface{}) {
+			e.eventHandler(newObj)
 		},
 	})
 	err := e.informer.SetWatchErrorHandler(func(_ *cache.Reflector, err error) {

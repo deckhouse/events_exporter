@@ -1,4 +1,4 @@
-module github.com/nabokihms/events_exporter
+module github.com/deckhouse/events_exporter
 
 go 1.24
 

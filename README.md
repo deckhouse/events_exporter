@@ -25,10 +25,10 @@ Usage of events_exporter:
 
 ### Docker Container
 
-Ready-to-use Docker images are [available on GitHub](https://github.com/nabokihms/events_exporter/pkgs/container/events_exporter).
+Ready-to-use Docker images are [available on GitHub](https://github.com/deckhouse/events_exporter/pkgs/container/events_exporter).
 
 ```bash
-docker pull ghcr.io/nabokihms/events_exporter:latest
+docker pull ghcr.io/deckhouse/events_exporter:latest
 ```
 
 ### Helm Chart
