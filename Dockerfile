@@ -30,7 +30,7 @@ COPY . .
 RUN make build
 
 
-FROM alpine:3.17.1 AS main
+FROM alpine:3.23.2 AS main
 
 RUN apk add --no-cache --update ca-certificates
 COPY --from=builder /usr/local/src/events_exporter/bin/events_exporter /usr/local/bin/events_exporter
